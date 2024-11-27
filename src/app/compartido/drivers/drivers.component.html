@@ -1,0 +1,123 @@
+<div class="container">
+    <h2>Register Driver</h2>
+    <form [formGroup]="driverForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Last Name</mat-label>
+            <input matInput formControlName="last_name" required>
+            <mat-error *ngIf="driverForm.get('last_name')?.touched && driverForm.get('last_name')?.hasError('required')">
+                Last Name is required
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>First Name</mat-label>
+            <input matInput formControlName="first_name" required>
+            <mat-error *ngIf="driverForm.get('first_name')?.touched && driverForm.get('first_name')?.hasError('required')">
+                First Name is required
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>SSN</mat-label>
+            <input matInput formControlName="ssn" required>
+            <mat-error *ngIf="driverForm.get('ssn')?.touched && driverForm.get('ssn')?.hasError('required')">
+                SSN is required
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Date of Birth</mat-label>
+            <input matInput type="date" formControlName="dob" required>
+            <mat-error *ngIf="driverForm.get('dob')?.touched && driverForm.get('dob')?.hasError('required')">
+                Date of Birth is required
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Address</mat-label>
+            <input matInput formControlName="address">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>City</mat-label>
+            <input matInput formControlName="city">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>ZIP</mat-label>
+            <input matInput formControlName="zip">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Phone</mat-label>
+            <input matInput formControlName="phone">
+        </mat-form-field>
+
+        <mat-checkbox formControlName="active">Active</mat-checkbox>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="!driverForm.valid">Register</button>
+    </form>
+
+    <h2>Drivers List</h2>
+    <table mat-table [dataSource]="drivers" class="mat-elevation-z8">
+        <ng-container matColumnDef="last_name">
+            <th mat-header-cell *matHeaderCellDef> Last Name </th>
+            <td mat-cell *matCellDef="let driver"> {{driver.last_name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="first_name">
+            <th mat-header-cell *matHeaderCellDef> First Name </th>
+            <td mat-cell *matCellDef="let driver"> {{driver.first_name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="ssn">
+            <th mat-header-cell *matHeaderCellDef> SSN </th>
+            <td mat-cell *matCellDef="let driver"> {{driver.ssn}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="dob">
+            <th mat-header-cell *matHeaderCellDef> Date of Birth </th>
+            <td mat-cell *matCellDef="let driver"> {{driver.dob | date}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef> Address </th>
+            <td mat-cell *matCellDef="let driver"> {{driver.address}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="city">
+            <th mat-header-cell *matHeaderCellDef> City </th>
+            <td mat-cell *matCellDef="let driver"> {{driver.city}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="zip">
+            <th mat-header-cell *matHeaderCellDef> ZIP </th>
+            <td mat-cell *matCellDef="let driver"> {{driver.zip}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="phone">
+            <th mat-header-cell *matHeaderCellDef> Phone </th>
+            <td mat-cell *matCellDef="let driver"> {{driver.phone}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="active">
+            <th mat-header-cell *matHeaderCellDef> Active </th>
+            <td mat-cell *matCellDef="let driver"> {{driver.active ? 'Yes' : 'No'}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> Actions </th>
+            <td mat-cell *matCellDef="let driver">
+                <button mat-icon-button color="primary" (click)="editDriver(driver)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button color="warn" (click)="deleteDriver(driver.id)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

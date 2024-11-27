@@ -1,0 +1,59 @@
+.container {
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    color: #006064;
+    margin-bottom: 20px;
+  }
+  
+  .mat-form-field {
+    margin-bottom: 16px;
+    width: 48%; /* Ajusta el ancho de los campos del formulario */
+    margin-right: 2%; /* Añade un margen derecho para espaciar los campos */
+  }
+  
+  .mat-form-field:nth-child(2n) {
+    margin-right: 0; /* Elimina el margen derecho para los campos en la segunda columna */
+  }
+  
+  .mat-checkbox {
+    margin-bottom: 16px;
+  }
+  
+  button {
+    margin-top: 16px;
+  }
+  
+  table {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  th.mat-header-cell {
+    background-color: #006064;
+    color: white;
+  }
+  
+  td.mat-cell {
+    background-color: white;
+  }
+  
+  .mat-elevation-z8 {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .mat-header-cell, .mat-cell {
+    padding: 8px;
+  }
+  
+  .mat-header-cell {
+    font-weight: bold;
+  }
+  
+  .mat-cell button {
+    margin-right: 8px;
+  }

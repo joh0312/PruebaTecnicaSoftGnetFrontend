@@ -1,0 +1,12 @@
+body {
+    background-color: var(--background-color, #121212); /* Color oscuro por defecto */
+    color: var(--text-color, #ffffff); /* Texto blanco por defecto */
+}
+
+  /* Personaliza los componentes de Angular Material, si es necesario */
+
+
+.mat-toolbar, .navbar {
+    background-color: #006064; /* Dark turquoise blue */
+    color: white;
+}
